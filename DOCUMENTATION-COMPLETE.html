@@ -1,0 +1,631 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    body {
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 11pt;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 2cm auto;
+        padding: 20px;
+        color: #333;
+    }
+    h1 { font-size: 26pt; color: #1a1a2e; border-bottom: 3px solid #00d9ff; padding-bottom: 15px; page-break-after: avoid; margin-top: 40px; }
+    h2 { font-size: 18pt; color: #302b63; margin-top: 35px; border-left: 5px solid #00d9ff; padding-left: 15px; page-break-after: avoid; }
+    h3 { font-size: 14pt; color: #444; margin-top: 25px; page-break-after: avoid; }
+    h4 { font-size: 12pt; color: #555; margin-top: 20px; }
+    code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Consolas', monospace; font-size: 10pt; }
+    pre { background: #f8f8f8; padding: 20px; border-radius: 8px; border-left: 5px solid #00d9ff; overflow-x: auto; font-size: 9pt; page-break-inside: avoid; white-space: pre-wrap; word-wrap: break-word; }
+    table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px 15px; text-align: left; }
+    th { background: #302b63; color: white; }
+    tr:nth-child(even) { background: #f9f9f9; }
+    ul, ol { margin-left: 25px; }
+    li { margin: 8px 0; }
+    a { color: #00d9ff; text-decoration: none; }
+    hr { border: none; border-top: 2px solid #ddd; margin: 40px 0; }
+    .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px 20px; margin: 20px 0; }
+    .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px 20px; margin: 20px 0; }
+    @page { size: A4; margin: 2cm; }
+    .toc { background: #f9f9f9; padding: 20px; border-radius: 10px; margin: 20px 0; }
+    .checkbox-item { margin: 5px 0; }
+</style>
+</head>
+<body>
+<h1>DOKUMENTASI LENGKAP BOT COLLECTION</h1>
+<h2>Panduan Terperinci untuk Semua Module</h2><p>Repository ini berisi koleksi lengkap bot dan agent AI yang dirancang untuk berbagai keperluan automasi dan menghasilkan uang secara online.</p><hr></p><h2>DAFTAR ISI</h2><ul>
+\0</ul><hr></p><h1>BAB 1: PENDAHULUAN</h1><h2>1.1 Tentang Repository</h2><p>Repository Bot Collection adalah kumpulan tools dan bot yang dapat digunakan untuk:</p><ul>
+\0</ul><h2>1.2 Struktur Repository</h2><p><pre><code>bot/
+|
+|-- Root Files (Dokumentasi)
+|   |-- index.html              = Dashboard utama untuk melihat semua bot
+|   |-- README.md               = Overview singkat repository
+|   |-- DOCUMENTATION.md        = Dokumentasi lengkap (Markdown)
+|   |-- DOCUMENTATION.pdf       = Dokumentasi lengkap (PDF)
+|   |-- LICENSE                = MIT License
+|
+|-- AI AGENTS (Bot dengan Kecerdasan Buatan)
+|   |
+|   |-- agent-os/
+|   |   |-- index.html         = Web interface untuk chat dengan AI
+|   |   |-- server.py          = Backend server (Flask)
+|   |   |-- requirements.txt   = Python dependencies
+|   |   |-- .env.example       = Template untuk API key
+|   |   |-- README.md          = Quick start guide
+|   |
+|   |-- agent-windows/
+|   |   |-- agent.py           = Main program (CLI)
+|   |   |-- config.py          = Konfigurasi
+|   |   |-- bot/               = Module-module bot
+|   |   |   |-- chat.py        = Modul chat dengan AI
+|   |   |   |-- file_ops.py    = Modul operasi file
+|   |   |   |-- web.py         = Modul pencarian web
+|   |   |   |-- code_runner.py = Modul jalankan kode Python
+|   |   |   |-- windows_auto.py= Modul kontrol Windows
+|   |   |-- requirements.txt   = Python dependencies
+|   |   |-- .env.example       = Template API key
+|   |   |-- README.md          = Panduan penggunaan
+|   |
+|   |-- bot-openhands/
+|   |   |-- agent_bot.py       = Agent utama
+|   |   |-- config.yaml        = Konfigurasi
+|   |   |-- requirements.txt   = Python dependencies
+|   |   |-- README.md          = Dokumentasi
+|
+|-- MONEY BOTS (Bot Penghasil Uang)
+|   |
+|   |-- bot-trading/
+|   |   |-- main.py           = Program utama trading
+|   |   |-- requirements.txt  = Dependencies (ccxt, pandas, dll)
+|   |   |-- config.example.yaml = Template konfigurasi
+|   |   |-- README.md         = Dokumentasi
+|   |
+|   |-- bot-social-media/
+|   |   |-- twitter_bot.py     = Bot untuk Twitter/X
+|   |   |-- telegram_bot.py    = Bot untuk Telegram
+|   |   |-- discord_bot.py     = Bot untuk Discord
+|   |   |-- requirements.txt   = Dependencies
+|   |   |-- .env.example       = Template API keys
+|   |   |-- README.md          = Dokumentasi
+|   |
+|   |-- bot-ecommerce/
+|   |   |-- shopify_bot.py     = Bot untuk Shopify
+|   |   |-- woocommerce_bot.py = Bot untuk WooCommerce
+|   |   |-- requirements.txt   = Dependencies
+|   |   |-- .env.example       = Template API keys
+|   |   |-- README.md          = Dokumentasi
+|   |
+|   |-- bot-support/
+|   |   |-- ticket_bot.py      = Bot ticket support
+|   |   |-- requirements.txt   = Dependencies
+|   |   |-- .env.example       = Template API keys
+|   |   |-- README.md          = Dokumentasi
+|   |
+|   |-- bot-scraping/
+|       |-- scraper.py         = Program utama scraping
+|       |-- requirements.txt   = Dependencies
+|       |-- config.example.yaml = Template konfigurasi
+|       |-- README.md          = Dokumentasi
+</code></pre><h2>1.3 Requirements Umum</h2><p>Sebelum menggunakan bot-bot ini, pastikan Anda memiliki:</p><h3>Hardware Requirements:</h3>
+<ul>
+\0</ul><h3>Software Requirements:</h3>
+<ul>
+\0</ul><h3>Akun dan API Keys (sesuai module):</h3>
+<ul>
+\0</ul><hr></p><h1>BAB 2: AGENT OS (Web-Based AI Agent)</h1><h2>2.1 Apa itu Agent OS?</h2><p>Agent OS adalah antarmuka web untuk berinteraksi dengan AI GPT-4. Agent ini memiliki tampilan yang modern dan mudah digunakan melalui browser. Anda dapat:</p><ul>
+\0</ul><h2>2.2 Struktur File Agent OS</h2><p><pre><code>agent-os/
+|
+|-- index.html         = Tampilan web (interface pengguna)
+|-- server.py          = Program backend yang menangani request
+|-- requirements.txt    = Daftar library Python yang diperlukan
+|-- .env.example       = Template untuk menyimpan API key
+|-- README.md          = Panduan cepat penggunaan
+</code></pre><h2>2.3 Cara Install Agent OS (Step by Step)</h2><h3>Step 1: Install Python</h3>
+<ul>
+\0</ul><h3>Step 2: Verifikasi Python</h3>
+Buka Command Prompt (tekan Windows + R, ketik "cmd", tekan Enter):
+<pre><code>python --version
+</code></pre>
+Jika muncul "Python 3.x.x", berarti Python sudah terinstall dengan benar.</p><h3>Step 3: Clone Repository</h3>
+<pre><code>git clone https://github.com/antono4/bot.git
+cd bot/agent-os
+</code></pre><h3>Step 4: Install Dependencies</h3>
+<pre><code>pip install -r requirements.txt
+</code></pre><p>Jika error, coba:
+<pre><code>python -m pip install -r requirements.txt
+</code></pre><h3>Step 5: Buat File .env</h3>
+Buka file .env.example, copy isinya, buat file baru bernama .env:
+<pre><code>OPENAI_API_KEY=sk-your-api-key-here
+</code></pre><p>Untuk mendapatkan API key:
+<ul>
+\0</ul><h3>Step 6: Jalankan Server</h3>
+<pre><code>python server.py
+</code></pre><h3>Step 7: Buka di Browser</h3>
+Buka browser dan ketik:
+<pre><code>http://localhost:5000
+</code></pre><h2>2.4 Fitur-Fitur Agent OS</h2><h3>2.4.1 Chat Interface</h3>
+Tampilan utama untuk berbicara dengan AI:
+<ul>
+\0</ul><h3>2.4.2 Quick Tools</h3>
+Tombol-tombol untuk akses cepat:
+<ul>
+\0</ul><h3>2.4.3 API Key Management</h3>
+<ul>
+\0</ul><h2>2.5 API Endpoints</h2><h3>POST /api/chat</h3>
+Endpoint ini menerima pesan dari user dan mengembalikan response dari AI.</p><p>Request:
+<pre><code>{
+  "message": "Halo, apa kabar?",
+  "history": [
+    {"role": "user", "content": "Pertanyaan sebelumnya"},
+    {"role": "assistant", "content": "Jawaban sebelumnya"}
+  ]
+}
+</code></pre><p>Response:
+<pre><code>{
+  "response": "Halo! Saya baik-baik saja. Ada yang bisa saya bantu?"
+}
+</code></pre><h2>2.6 Troubleshooting Agent OS</h2><p><table><thead><tr><th>Masalah</th><th>Penyebab</th><th>Solusi</th></tr></thead><tbody><tr><td>Halaman blank putih</td><td>Server belum jalan</td><td>Jalankan <code>python server.py</code></td></tr><tr><td>Error "API key invalid"</td><td>API key salah</td><td>Cek OPENAI_API_KEY di .env</td></tr><tr><td>Error "Connection refused"</td><td>Port 5000 digunakan aplikasi lain</td><td>Tutup aplikasi lain atau ubah port</td></tr><tr><td>Halaman tidak responsif</td><td>Browser lama</td><td>Gunakan browser versi terbaru</td></tr></tbody></table>
+<hr></p><h1>BAB 3: AGENT WINDOWS (Windows CLI Agent)</h1><h2>3.1 Apa itu Agent Windows?</h2><p>Agent Windows adalah bot berbasis Command Line Interface (CLI) yang berjalan di Windows 11. Berbeda dengan Agent OS yang menggunakan web interface, Agent Windows beroperasi melalui terminal/command prompt. Agent ini memiliki kemampuan khusus untuk mengontrol Windows seperti mouse, keyboard, dan screenshot.</p><h2>3.2 Struktur File Agent Windows</h2><p><pre><code>agent-windows/
+|
+|-- File Utama
+|   |-- agent.py          = Program utama yang dijalankan
+|   |-- config.py         = Konfigurasi (model AI, temperature, dll)
+|
+|-- Folder bot/ (Module-module)
+|   |-- __init__.py       = File untuk menandai folder sebagai package
+|   |-- chat.py           = Modul untuk berkomunikasi dengan AI
+|   |-- file_ops.py       = Modul untuk operasi file (baca, tulis, list)
+|   |-- web.py            = Modul untuk pencarian di web
+|   |-- code_runner.py    = Modul untuk menjalankan kode Python
+|   |-- windows_auto.py   = Modul untuk kontrol Windows (mouse, keyboard)
+|
+|-- File Konfigurasi
+|   |-- requirements.txt  = Daftar library Python
+|   |-- .env.example      = Template API key
+|
+|-- Dokumentasi
+    |-- README.md         = Panduan penggunaan
+    |-- SETUP-WINDOWS.md   = Panduan install di Windows
+</code></pre><h2>3.3 Cara Install Agent Windows (Step by Step)</h2><h3>Step 1: Install Python</h3>
+Sama seperti Agent OS, download dan install Python dari https://www.python.org/downloads/
+Pastikan centang "Add Python to PATH"</p><h3>Step 2: Verifikasi Python</h3>
+<pre><code>python --version
+</code></pre><h3>Step 3: Clone Repository</h3>
+<pre><code>git clone https://github.com/antono4/bot.git
+cd bot/agent-windows
+</code></pre><h3>Step 4: Install Dependencies</h3>
+<pre><code>pip install -r requirements.txt
+</code></pre><h3>Step 5: Setup API Key</h3>
+<pre><code>copy .env.example .env
+notepad .env
+</code></pre>
+Masukkan OpenAI API key Anda, simpan file.</p><h3>Step 6: Jalankan</h3>
+<pre><code>python agent.py
+</code></pre><h2>3.4 Command Reference (Referensi Perintah)</h2><p>Agent Windows menerima perintah-perintah berikut:</p><h3>3.4.1 Perintah Chat</h3>
+Ketik apa saja dan AI akan merespons:
+<pre><code>You: Halo, apa kabar?
+AI: Halo! Saya baik-baik saja. Ada yang bisa saya bantu?</p><p>You: Jelaskan tentang Python
+AI: Python adalah bahasa pemrograman tingkat tinggi...
+</code></pre><h3>3.4.2 Perintah File Operations</h3><h4>Baca File</h4>
+<pre><code>baca file path/to/file.txt
+</code></pre>
+Contoh:
+<pre><code>baca file C:\Users\Nama\Documents\notes.txt
+baca file ./readme.md
+</code></pre>
+Hasil: Menampilkan isi file yang dibaca.</p><h4>Tulis File</h4>
+<pre><code>tulis file path/to/file.txt | Isi file di sini
+</code></pre>
+Contoh:
+<pre><code>tulis file test.txt | Halo ini file baru
+</code></pre>
+Hasil: Membuat file baru dengan isi "Halo ini file baru".</p><h4>List Files</h4>
+<pre><code>list file path/to/folder
+</code></pre>
+Contoh:
+<pre><code>list file C:\Users\Nama\Documents
+list file .
+</code></pre>
+Hasil: Menampilkan daftar file dan folder di lokasi tersebut.</p><h3>3.4.3 Perintah Web Search</h3><h4>Cari Informasi</h4>
+<pre><code>cari kata kunci pencarian
+</code></pre>
+Contoh:
+<pre><code>cari python programming tutorial
+cari cara membuat website
+</code></pre>
+Hasil: Menampilkan hasil pencarian dari web.</p><h3>3.4.4 Perintah Code Execution</h3><h4>Jalankan Kode Python</h4>
+<pre><code>jalankan kode python
+</code></pre>
+Contoh:
+<pre><code>jalankan print("Hello World")
+jalankan for i in range(5): print(i)
+</code></pre>
+Hasil: Menampilkan output dari kode Python yang dijalankan.</p><h3>3.4.5 Perintah Windows Automation</h3><h4>Click Mouse</h4>
+<pre><code>click
+click 100 200
+</code></pre>
+<ul>
+\0</ul><h4>Move Mouse</h4>
+<pre><code>move 500 500
+</code></pre>
+Memindahkan mouse ke koordinat (500, 500).</p><h4>Screenshot</h4>
+<pre><code>screenshot
+screenshot nama_file.png
+</code></pre>
+Mengambil screenshot layar dan menyimpan ke file.</p><h4>Wait (Tunggu)</h4>
+<pre><code>wait 5
+</code></pre>
+Menunggu 5 detik.</p><h3>3.4.6 Perintah Lainnya</h3><h4>Clear Screen</h4>
+<pre><code>clear
+</code></pre>
+Menghapus semua teks di terminal.</p><h4>Exit/Keluar</h4>
+<pre><code>exit
+quit
+keluar
+</code></pre>
+Menutup program Agent Windows.</p><h2>3.5 Penjelasan Module (Kode Program)</h2><h3>3.5.1 Module chat.py</h3><p>Module ini menangani komunikasi dengan OpenAI API:</p><p><pre><code>class ChatBot:
+    def __init__(self):
+        # Inisialisasi dengan API key dari environment
+        self.api_key = os.getenv("OPENAI_API_KEY")
+        self.model = os.getenv("MODEL", "gpt-4")
+        
+        # Buat client OpenAI jika API key tersedia
+        if self.api_key and OPENAI_AVAILABLE:
+            self.client = openai.OpenAI(api_key=self.api_key)
+    
+    def ask(self, question, history=None):
+        # Kirim pertanyaan ke AI dan return jawabannya
+        pass
+</code></pre><h3>3.5.2 Module file_ops.py</h3><p>Module ini menangani operasi file:</p><p><pre><code>class FileOperations:
+    def read_file(self, path):
+        # Baca isi file dan return sebagai string
+        
+    def write_file(self, path, content):
+        # Tulis content ke file
+        
+    def list_files(self, path="."):
+        # List semua file dan folder di path
+</code></pre><h3>3.5.3 Module windows_auto.py</h3><p>Module ini mengontrol Windows:</p><p><pre><code>class WindowsAutomation:
+    def move_mouse(self, x, y):
+        # Pindahkan cursor mouse ke posisi (x, y)
+        
+    def click(self, x=None, y=None):
+        # Klik mouse di posisi tertentu
+        
+    def screenshot(self, filename="screenshot.png"):
+        # Ambil screenshot layar
+</code></pre><h2>3.6 Troubleshooting Agent Windows</h2><p><table><thead><tr><th>Masalah</th><th>Penyebab</th><th>Solusi</th></tr></thead><tbody><tr><td>'python' is not recognized</td><td>Python tidak di PATH</td><td>Reinstall Python dengan centang "Add to PATH"</td></tr><tr><td>No module named 'openai'</td><td>Dependencies belum terinstall</td><td>Jalankan <code>pip install -r requirements.txt</code></td></tr><tr><td>API key invalid</td><td>API key salah atau expired</td><td>Cek dan update OPENAI_API_KEY di .env</td></tr><tr><td>Mouse tidak bergerak</td><td>Failsafe aktif</td><td>Pindahkan mouse ke pojok layar untuk cancel</td></tr><tr><td>Screenshot error</td><td>Folder tidak ada</td><td>Pastikan folder tujuan ada</td></tr></tbody></table>
+<hr></p><h1>BAB 4: BOT TRADING</h1><h2>4.1 Apa itu Bot Trading?</h2><p>Bot Trading adalah program yang secara otomatis membeli dan menjual cryptocurrency atau saham berdasarkan strategi tertentu. Bot ini dapat:
+<ul>
+\0</ul><h2>4.2 Fitur-Fitur Bot Trading</h2><ul>
+\0</ul><h2>4.3 Strategi Trading</h2><h3>4.3.1 RSI (Relative Strength Index)</h3>
+RSI mengukur kecepatan dan perubahan harga:
+<ul>
+\0</ul><h3>4.3.2 MACD (Moving Average Convergence Divergence)</h3>
+MACD menggunakan dua moving average:
+<ul>
+\0</ul><h3>4.3.3 Grid Trading</h3>
+Membagi harga menjadi grid-levels:
+<ul>
+\0</ul><h3>4.3.4 DCA (Dollar Cost Averaging)</h3>
+Membeli amount tetap secara berkala:
+<ul>
+\0</ul><h2>4.4 Konfigurasi Bot Trading</h2><p>File konfigurasi: <code>config.yaml</code></p><p><pre><code><h1>Pengaturan Global</h1>
+global:
+  # Mode: paper (test), testnet, live (uang asli!)
+  mode: "paper"
+  
+  # Level log: DEBUG, INFO, WARNING, ERROR
+  log_level: "INFO"
+  
+  # Interval cek sinyal dalam detik
+  check_interval: 60</p><h1>Konfigurasi Exchange</h1>
+exchanges:
+  # Exchange Binance (Crypto)
+  binance:
+    enabled: true
+    testnet: true  # SELALU mulai dengan testnet!
+    api_key: "YOUR_BINANCE_API_KEY"
+    api_secret: "YOUR_BINANCE_API_SECRET"
+    trading_pairs:
+      - "BTC/USDT"  # Bitcoin
+      - "ETH/USDT"  # Ethereum
+  
+  # Exchange Coinbase
+  coinbase:
+    enabled: false
+    sandbox: true
+  
+  # Exchange Alpaca (Stocks)
+  alpaca:
+    enabled: false
+    paper: true</p><h1>Pengaturan Trading</h1>
+trading:
+  # Strategi yang digunakan
+  strategy: "rsi"
+  
+  # Besaran posisi (% dari portofolio)
+  position_size: 0.1
+  
+  # Maksimal posisi terbuka
+  max_positions: 3
+  
+  # Stop Loss (% jika harga turun)
+  stop_loss: 2.0
+  
+  # Take Profit (% jika harga naik)
+  take_profit: 5.0
+  
+  # Trailing Stop (mengunci profit)
+  trailing_stop: 1.0</p><h1>Pengaturan Strategi RSI</h1>
+strategies:
+  rsi:
+    period: 14
+    oversold: 30
+    overbought: 70
+  
+  macd:
+    fast_period: 12
+    slow_period: 26
+    signal_period: 9
+  
+  grid:
+    grid_size: 10
+    order_amount: 10
+  
+  dca:
+    frequency: "weekly"
+    amount: 10
+</code></pre><h2>4.5 Cara Install dan Jalankan</h2><h3>Step 1: Buat Akun Exchange</h3><h4>Binance:</h4>
+<ul>
+\0</ul>
+   - Buka https://www.binance.com/en/my/settings/api-management
+   - Create API Key
+   - Centang "Enable Spot & Margin Trading"
+   - Simpan API Key dan Secret</p><h3>Step 2: Install Bot</h3>
+<pre><code>git clone https://github.com/antono4/bot.git
+cd bot/bot-trading
+pip install -r requirements.txt
+</code></pre><h3>Step 3: Konfigurasi</h3>
+<pre><code>copy config.example.yaml config.yaml
+</code></pre>
+Edit config.yaml dengan API key Anda.</p><h3>Step 4: Test dengan Paper Trading</h3>
+<pre><code>python main.py --strategy rsi
+</code></pre><h3>Step 5: Live Trading (BERISIKO!)</h3>
+<pre><code>python main.py --live --strategy rsi
+</code></pre><h2>4.6 ⚠️ PERINGATAN PENTING</h2><p><strong>TRADING MEMILIKI RISIKO TINGGI!</strong></p><ul>
+\0</ul>
+   - Test strategi di mode paper/sandbox
+   - Jangan langsung gunakan uang asli</p><ul>
+\0</ul>
+   - Selalu pasang stop loss untuk membatasi kerugian
+   - Jangan pernah trading tanpa stop loss</p><ul>
+\0</ul>
+   - Trading adalah especulasi
+   - Hanya gunakan uang yang tidak diperlukan</p><ul>
+\0</ul>
+   - Bot bukan pengganti pengawasan manusia
+   - Cek secara regular untuk kondisi tak terduga</p><hr></p><h1>BAB 5: BOT SOCIAL MEDIA</h1><h2>5.1 Apa itu Bot Social Media?</h2><p>Bot Social Media adalah program yang mengautomasi tugas-tugas di platform social media seperti Twitter/X, Telegram, dan Discord. Bot ini dapat:
+<ul>
+\0</ul><h2>5.2 Bot Twitter/X</h2><h3>5.2.1 Fitur</h3>
+<ul>
+\0</ul><h3>5.2.2 Setup Twitter Developer</h3><ul>
+\0</ul>
+   - Project Name: Bot Social Media
+   - Use Case: Automating engagement
+<ul>
+\0</ul>
+   - App name: social-media-bot
+<ul>
+\0</ul>
+   - Read and Write (untuk bisa post)
+<ul>
+\0</ul>
+   - API Key
+   - API Secret
+   - Access Token
+   - Access Token Secret</p><h3>5.2.3 Environment Variables</h3>
+<pre><code>TWITTER_API_KEY=your_api_key
+TWITTER_API_SECRET=your_api_secret
+TWITTER_ACCESS_TOKEN=your_access_token
+TWITTER_ACCESS_SECRET=your_access_token_secret
+</code></pre><h2>5.3 Bot Telegram</h2><h3>5.3.1 Fitur</h3>
+<ul>
+\0</ul><h3>5.3.2 Setup Telegram Bot</h3><ul>
+\0</ul>
+   <pre><code>   /newbot
+   </code></pre>
+<ul>
+\0</ul>
+   - Enter bot name: My Bot
+   - Enter username: mybot (harus diakhiri _bot)
+<ul>
+\0</ul><h3>5.3.3 Environment Variables</h3>
+<pre><code>TELEGRAM_BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+</code></pre><h3>5.3.4 Contoh Command Bot Telegram</h3>
+<pre><code>/start      - Memulai bot
+/help       - Menampilkan bantuan
+/stats      - Menampilkan statistik
+/broadcast  - Broadcast pesan ke semua user
+</code></pre><h2>5.4 Bot Discord</h2><h3>5.4.1 Fitur</h3>
+<ul>
+\0</ul><h3>5.4.2 Setup Discord Developer</h3><ul>
+\0</ul>
+   - Klik "Add Bot"
+   - Enable "Message Content Intent"
+   - Copy Token
+<ul>
+\0</ul>
+   - Go to OAuth2 > URL Generator
+   - Scopes: bot
+   - Permissions: Administrator
+   - Use generated URL to invite</p><h3>5.4.3 Environment Variables</h3>
+<pre><code>DISCORD_BOT_TOKEN=your_bot_token
+DISCORD_GUILD_ID=your_guild_id
+</code></pre><h2>5.5 Installation</h2>
+<pre><code>git clone https://github.com/antono4/bot.git
+cd bot/bot-social-media
+pip install -r requirements.txt
+copy .env.example .env
+<h1>Edit .env dengan credentials Anda</h1>
+python twitter_bot.py    # untuk Twitter
+python telegram_bot.py   # untuk Telegram
+python discord_bot.py    # untuk Discord
+</code></pre><hr></p><h1>BAB 6: BOT E-COMMERCE</h1><h2>6.1 Apa itu Bot E-Commerce?</h2><p>Bot E-Commerce adalah automation tool untuk mengelola online store di platform seperti Shopify dan WooCommerce. Bot ini dapat:
+<ul>
+\0</ul><h2>6.2 Bot Shopify</h2><h3>6.2.1 Fitur</h3>
+<ul>
+\0</ul><h3>6.2.2 Setup Shopify Partner</h3><ul>
+\0</ul>
+   - App Name: ecommerce-bot
+   - App URL: http://localhost
+   - Redirect URL: http://localhost/callback
+<ul>
+\0</ul>
+   - API Key
+   - Access Token
+   - Shop URL</p><h3>6.2.3 Environment Variables</h3>
+<pre><code>SHOPIFY_SHOP_URL=your-store.myshopify.com
+SHOPIFY_API_KEY=your_api_key
+SHOPIFY_ACCESS_TOKEN=your_access_token
+</code></pre><h2>6.3 Bot WooCommerce</h2><h3>6.3.1 Fitur</h3>
+<ul>
+\0</ul><h3>6.3.2 Setup WooCommerce REST API</h3><ul>
+\0</ul>
+   - Description: E-Commerce Bot
+   - User: (pilih user admin)
+   - Permissions: Read/Write
+<ul>
+\0</ul><h3>6.3.3 Environment Variables</h3>
+<pre><code>WOOCOMMERCE_URL=https://your-store.com
+WOOCOMMERCE_KEY=ck_xxxxxxxxxxxxxxxxxxxxx
+WOOCOMMERCE_SECRET=cs_xxxxxxxxxxxxxxxxxxxxx
+</code></pre><h2>6.4 Contoh Usage</h2><p><pre><code>from shopify_bot import ShopifyBot</p><h1>Inisialisasi bot</h1>
+bot = ShopifyBot()
+bot.connect()</p><h1>Ambil daftar produk</h1>
+products = bot.get_products(limit=50)
+print(f"Ditemukan {len(products)} produk")</p><h1>Update inventory</h1>
+bot.update_inventory(variant_id="123", quantity=100)</p><h1>Ambil order</h1>
+orders = bot.get_orders(status="open")
+print(f"Ada {len(orders)} order terbuka")
+</code></pre><hr></p><h1>BAB 7: BOT SUPPORT</h1><h2>7.1 Apa itu Bot Support?</h2><p>Bot Support adalah automation tool untuk customer support yang terintegrasi dengan platform seperti Zendesk dan Intercom. Bot ini dapat:
+<ul>
+\0</ul><h2>7.2 Integrasi Zendesk</h2><h3>Setup:</h3>
+<ul>
+\0</ul><h3>Environment Variables:</h3>
+<pre><code>ZENDESK_URL=https://your-company.zendesk.com
+ZENDESK_EMAIL=admin@company.com
+ZENDESK_TOKEN=your_zendesk_token
+</code></pre><h2>7.3 Integrasi Intercom</h2><h3>Setup:</h3>
+<ul>
+\0</ul><h3>Environment Variables:</h3>
+<pre><code>INTERCOM_ACCESS_TOKEN=your_intercom_token
+</code></pre><h2>7.4 Contoh Usage</h2><p><pre><code>from ticket_bot import SupportBot</p><p>bot = SupportBot()</p><h1>Ambil ticket terbuka</h1>
+tickets = bot.get_tickets(status="open")
+print(f"Ada {len(tickets)} ticket terbuka")</p><h1>Balas ticket</h1>
+bot.reply_ticket(ticket_id="123", message="Terima kasih atas pertanyaannya...")</p><h1>Escalate ticket</h1>
+bot.escalate_ticket(ticket_id="123", reason="Customer unhappy")
+</code></pre><hr></p><h1>BAB 8: BOT SCRAPING</h1><h2>8.1 Apa itu Bot Scraping?</h2><p>Bot Scraping adalah tool untuk mengambil data dari website secara otomatis. Bot ini dapat:
+<ul>
+\0</ul><h2>8.2 Fitur-Fitur</h2><ul>
+\0</ul><h2>8.3 Konfigurasi</h2><p>File <code>config.yaml</code>:</p><p><pre><code>scraping:
+  # Delay antar request (detik)
+  delay: 2
+  
+  # Timeout request (detik)
+  timeout: 30
+  
+  # Max retry attempts
+  max_retries: 3</p><p>targets:
+  # Target website
+  - url: "https://example.com/products"
+    
+    # CSS selectors untuk extract data
+    selectors:
+      - ".price"        # Selector untuk harga
+      - ".title"        # Selector untuk judul
+      - ".description"  # Selector untuk deskripsi
+    
+    # Schedule: daily, hourly, weekly
+    schedule: "daily"
+</code></pre><h2>8.4 Contoh Usage</h2><p><pre><code>from scraper import WebScraper</p><p>scraper = WebScraper()</p><h1>Ambil halaman</h1>
+soup = scraper.fetch_page("https://example.com/products")</p><h1>Extract harga</h1>
+prices = scraper.extract_prices(soup, ".price")
+print(f"Harga: {prices}")</p><h1>Scrape dengan delay</h1>
+result = scraper.scrape_with_delay("https://example.com", delay=3)
+</code></pre><h2>8.5 ⚠️ Etika Scraping</h2><ul>
+\0</ul><hr></p><h1>BAB 9: BOT OPENHANDS</h1><h2>9.1 Apa itu Bot OpenHands?</h2><p>Bot OpenHands adalah AI agent yang menggunakan OpenHands SDK untuk automasi task. Bot ini dapat:
+<ul>
+\0</ul><h2>9.2 Fitur-Fitur</h2><ul>
+\0</ul><h2>9.3 Konfigurasi</h2><p>File <code>config.yaml</code>:</p><p><pre><code>openai:
+  model: "gpt-4"
+  temperature: 0.7</p><p>anthropic:
+  model: "claude-3-sonnet"
+  temperature: 0.7</p><p>general:
+  log_level: "INFO"
+</code></pre><h2>9.4 Installation</h2><p><pre><code>git clone https://github.com/antono4/bot.git
+cd bot/bot-openhands
+pip install -r requirements.txt
+python agent_bot.py
+</code></pre><hr></p><h1>BAB 10: INSTALLATION CHECKLIST</h1><h2>10.1通用 Checklist</h2><p>Untuk semua module, pastikan Anda已完成:</p><ul>
+\0</ul><h2>10.2 Per Module Checklist</h2><h3>Agent OS</h3>
+<ul>
+\0</ul><h3>Agent Windows</h3>
+<ul>
+\0</ul><h3>Bot Trading</h3>
+<ul>
+\0</ul><h3>Bot Social Media</h3>
+<ul>
+\0</ul><h3>Bot E-Commerce</h3>
+<ul>
+\0</ul><h3>Bot Support</h3>
+<ul>
+\0</ul><h3>Bot Scraping</h3>
+<ul>
+\0</ul><hr></p><h1>BAB 11: TROUBLESHOOTING</h1><h2>11.1 Common Errors dan Solutions</h2><h3>Python Errors</h3><p><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>'python' is not recognized</td><td>Python not in PATH</td><td>Reinstall Python, centang "Add to PATH"</td></tr><tr><td>No module named 'xxx'</td><td>Dependencies not installed</td><td>Jalankan <code>pip install -r requirements.txt</code></td></tr><tr><td>SyntaxError</td><td>Typo in code</td><td>Check kode dengan text editor</td></tr><tr><td>IndentationError</td><td>Spacing salah</td><td>Gunakan 4 spaces untuk indentasi</td></tr></tbody></table>
+<h3>API Errors</h3><p><table><thead><tr><th>Error</th><th>Cause</th><th>Solution</th></tr></thead><tbody><tr><td>Authentication Error</td><td>API key salah/expired</td><td>Cek dan regenerate API key</td></tr><tr><td>Rate Limit Exceeded</td><td>Too many requests</td><td>Tunggu dan kurangi request frequency</td></tr><tr><td>Connection Timeout</td><td>No internet / server down</td><td>Cek koneksi dan coba lagi</td></tr></tbody></table>
+<h3>Platform-Specific Errors</h3><p><table><thead><tr><th>Error</th><th>Platform</th><th>Solution</th></tr></thead><tbody><tr><td>Invalid Token</td><td>Twitter</td><td>Regenerate Twitter API keys</td></tr><tr><td>Shop Not Found</td><td>Shopify</td><td>Cek Shopify URL</td></tr><tr><td>401 Unauthorized</td><td>WooCommerce</td><td>Regenerate REST API keys</td></tr></tbody></table>
+<h2>11.2 Tips Keamanan</h2><ul>
+\0</ul><hr></p><h1>BAB 12: LICENSE</h1><h2>MIT License</h2><p>Copyright (c) 2024 Bot Collection</p><p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p><p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p><hr></p><h1>LAMPIRAN: QUICK REFERENCE</h1><h2>A.1 Git Commands</h2>
+<pre><code><h1>Clone repository</h1>
+git clone https://github.com/antono4/bot.git</p><h1>Update ke versi terbaru</h1>
+git pull origin master</p><h1>Check status</h1>
+git status
+</code></pre><h2>A.2 Python Commands</h2>
+<pre><code><h1>Install dependencies</h1>
+pip install -r requirements.txt</p><h1>Run script</h1>
+python script.py</p><h1>Check version</h1>
+python --version
+</code></pre><h2>A.3 Quick Start Commands</h2>
+<pre><code><h1>Agent OS</h1>
+cd agent-os && python server.py</p><h1>Agent Windows</h1>
+cd agent-windows && python agent.py</p><h1>Bot Trading</h1>
+cd bot-trading && python main.py --strategy rsi
+</code></pre><h2>A.4 API Documentation Links</h2><h3>Exchange APIs</h3>
+<ul>
+\0</ul><h3>Social Media APIs</h3>
+<ul>
+\0</ul><h3>E-Commerce APIs</h3>
+<ul>
+\0</ul><h3>AI APIs</h3>
+<ul>
+\0</ul><hr></p><p><strong>Document Version</strong>: 1.0
+<strong>Last Updated</strong>: 2024
+<strong>Author</strong>: Bot Collection Team
+<strong>License</strong>: MIT
+</p></body></html>
