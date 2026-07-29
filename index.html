@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Bot Collection - AI Agents</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Agent Grid */
+        .section-title {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 60px 0 30px;
+            padding-left: 20px;
+            border-left: 4px solid #00d9ff;
+        }
+
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .agent-card {
+            background: linear-gradient(145deg, #1e1e2e, #2a2a3e);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agent-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        }
+
+        .agent-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .agent-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .agent-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .agent-desc {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .agent-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            padding: 5px 12px;
+            background: rgba(0,217,255,0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #00d9ff;
+        }
+
+        .agent-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d9ff, #00a8cc);
+            color: #1a1a2e;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 5px 20px rgba(0,217,255,0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #555;
+            color: #aaa;
+        }
+
+        .btn-secondary:hover {
+            border-color: #00d9ff;
+            color: #00d9ff;
+        }
+
+        /* Agent OS Special Card */
+        .agent-card.agent-os {
+            background: linear-gradient(145deg, #1a1a3e, #2a2a4e);
+            --accent1: #00d9ff;
+            --accent2: #00ff88;
+        }
+
+        /* Agents Specific Colors */
+        .agent-card.trading {
+            --accent1: #f7931a;
+            --accent2: #ff6b00;
+        }
+
+        .agent-card.social {
+            --accent1: #1da1f2;
+            --accent2: #e1306c;
+        }
+
+        .agent-card.ecommerce {
+            --accent1: #96bf48;
+            --accent2: #5e8b3c;
+        }
+
+        .agent-card.support {
+            --accent1: #03363d;
+            --accent2: #00a1c9;
+        }
+
+        .agent-card.scraping {
+            --accent1: #e34f26;
+            --accent2: #1572b6;
+        }
+
+        .agent-card.windows {
+            --accent1: #0078d4;
+            --accent2: #50e6ff;
+        }
+
+        .agent-card.openhands {
+            --accent1: #6c5ce7;
+            --accent2: #a29bfe;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0;
+            color: #666;
+            border-top: 1px solid #333;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .agents-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>🤖 Bot Collection</h1>
+            <p class="subtitle">Koleksi lengkap bot dan agent AI untuk menghasilkan uang dan automasi</p>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">9</div>
+                <div class="stat-label">Agents & Bots</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">6</div>
+                <div class="stat-label">Platforms</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Open Source</div>
+            </div>
+        </div>
+
+        <!-- AI Agents Section -->
+        <h2 class="section-title">🤖 AI Agents</h2>
+        <div class="agents-grid">
+            
+            <!-- Agent OS -->
+            <div class="agent-card agent-os">
+                <div class="agent-icon">🌐</div>
+                <div class="agent-name">Agent OS</div>
+                <div class="agent-desc">AI Agent dengan web interface modern. Chat, file operations, web search, dan code execution dalam satu dashboard.</div>
+                <div class="agent-tags">
+                    <span class="tag">Web UI</span>
+                    <span class="tag">GPT-4</span>
+                    <span class="tag">Flask</span>
+                </div>
+                <div class="agent-links">
+                    <a href="agent-os/index.html" class="btn btn-primary">🌐 Open App</a>
+                    <a href="agent-os/server.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- Windows Agent -->
+            <div class="agent-card windows">
+                <div class="agent-icon">🪟</div>
+                <div class="agent-name">Windows Agent</div>
+                <div class="agent-desc">AI Agent untuk Windows 11 dengan CLI interface. Control mouse, keyboard, file operations, dan automation.</div>
+                <div class="agent-tags">
+                    <span class="tag">Windows 11</span>
+                    <span class="tag">CLI</span>
+                    <span class="tag">Automation</span>
+                </div>
+                <div class="agent-links">
+                    <a href="agent-windows/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="agent-windows/agent.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- OpenHands Bot -->
+            <div class="agent-card openhands">
+                <div class="agent-icon">🚀</div>
+                <div class="agent-name">OpenHands Agent</div>
+                <div class="agent-desc">AI-powered automation menggunakan OpenHands SDK. Multi-tool usage, code generation, dan task automation.</div>
+                <div class="agent-tags">
+                    <span class="tag">OpenHands SDK</span>
+                    <span class="tag">AI Agent</span>
+                    <span class="tag">Task Auto</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-openhands/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-openhands/agent_bot.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Money Bots Section -->
+        <h2 class="section-title">💰 Money-Making Bots</h2>
+        <div class="agents-grid">
+
+            <!-- Trading Bot -->
+            <div class="agent-card trading">
+                <div class="agent-icon">📈</div>
+                <div class="agent-name">Bot Trading</div>
+                <div class="agent-desc">Automated cryptocurrency dan stock trading dengan technical analysis. Support Binance, Alpaca, dan lebih dari 100 exchange.</div>
+                <div class="agent-tags">
+                    <span class="tag">Crypto</span>
+                    <span class="tag">Stocks</span>
+                    <span class="tag">Trading</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-trading/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-trading/main.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- Social Media Bot -->
+            <div class="agent-card social">
+                <div class="agent-icon">📱</div>
+                <div class="agent-name">Bot Social Media</div>
+                <div class="agent-desc">Automation untuk Twitter/X, Instagram, Telegram, dan Discord. Auto post, reply, analytics, dan scheduling.</div>
+                <div class="agent-tags">
+                    <span class="tag">Twitter</span>
+                    <span class="tag">Telegram</span>
+                    <span class="tag">Discord</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-social-media/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-social-media/twitter_bot.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- E-Commerce Bot -->
+            <div class="agent-card ecommerce">
+                <div class="agent-icon">🛒</div>
+                <div class="agent-name">Bot E-Commerce</div>
+                <div class="agent-desc">Automation untuk Shopify dan WooCommerce. Product management, inventory sync, order processing, dan analytics.</div>
+                <div class="agent-tags">
+                    <span class="tag">Shopify</span>
+                    <span class="tag">WooCommerce</span>
+                    <span class="tag">Inventory</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-ecommerce/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-ecommerce/shopify_bot.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- Support Bot -->
+            <div class="agent-card support">
+                <div class="agent-icon">🎧</div>
+                <div class="agent-name">Bot Support</div>
+                <div class="agent-desc">Customer support automation dengan Zendesk dan Intercom integration. Auto reply, ticket management, dan FAQ.</div>
+                <div class="agent-tags">
+                    <span class="tag">Zendesk</span>
+                    <span class="tag">Intercom</span>
+                    <span class="tag">Tickets</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-support/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-support/ticket_bot.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+            <!-- Scraping Bot -->
+            <div class="agent-card scraping">
+                <div class="agent-icon">🕷️</div>
+                <div class="agent-name">Bot Scraping</div>
+                <div class="agent-desc">Web scraping dan data extraction. Price monitoring, competitor tracking, dan scheduled data collection.</div>
+                <div class="agent-tags">
+                    <span class="tag">Web Scraping</span>
+                    <span class="tag">Price Monitor</span>
+                    <span class="tag">Data</span>
+                </div>
+                <div class="agent-links">
+                    <a href="bot-scraping/README.md" class="btn btn-primary">📖 Docs</a>
+                    <a href="bot-scraping/scraper.py" class="btn btn-secondary">📄 Source</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>🤖 Bot Collection - Made with ❤️ by <a href="https://github.com/antono4">antono4</a></p>
+            <p style="margin-top: 10px;">Open Source under MIT License</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add hover effect sound (optional)
+        document.querySelectorAll('.agent-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.cursor = 'pointer';
+            });
+        });
+
+        // Animate cards on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.agent-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
