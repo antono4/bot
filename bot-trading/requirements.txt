@@ -1,0 +1,11 @@
+# Trading Bot Dependencies
+ccxt>=4.0.0          # Multi-exchange crypto trading
+alpaca-trade-api>=2.0.0  # Alpaca stocks API
+pandas>=2.0.0       # Data analysis
+numpy>=1.24.0       # Numerical operations
+ta>=0.10.0          # Technical analysis indicators
+python-binance>=1.0.17  # Binance API wrapper
+requests>=2.31.0    # HTTP requests
+PyYAML>=6.0         # YAML config parsing
+python-dotenv>=1.0.0 # Environment variables
+schedule>=1.2.0     # Task scheduling

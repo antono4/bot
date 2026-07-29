@@ -1,0 +1,62 @@
+# Trading Bot Configuration
+# Copy this file to config.yaml and fill in your API keys
+
+# Global settings
+global:
+  mode: "paper"  # paper, testnet, live
+  log_level: "INFO"
+  check_interval: 60  # seconds
+
+# Exchange configurations
+exchanges:
+  binance:
+    enabled: true
+    testnet: true  # Start with testnet!
+    api_key: "YOUR_BINANCE_API_KEY"
+    api_secret: "YOUR_BINANCE_API_SECRET"
+    trading_pairs:
+      - "BTC/USDT"
+      - "ETH/USDT"
+  
+  coinbase:
+    enabled: false
+    api_key: "YOUR_COINBASE_API_KEY"
+    api_secret: "YOUR_COINBASE_API_SECRET"
+    sandbox: true  # Start with sandbox!
+
+  alpaca:
+    enabled: false
+    api_key: "YOUR_ALPACA_API_KEY"
+    api_secret: "YOUR_ALPACA_API_SECRET"
+    paper: true  # Paper trading
+
+# Trading settings
+trading:
+  strategy: "rsi"  # rsi, macd, grid, dca
+  position_size: 0.1  # % of portfolio per trade
+  max_positions: 3
+  
+  # Risk management
+  stop_loss: 2.0  # % below entry
+  take_profit: 5.0  # % above entry
+  trailing_stop: 1.0  # %
+
+# Strategy-specific settings
+strategies:
+  rsi:
+    period: 14
+    oversold: 30
+    overbought: 70
+  
+  macd:
+    fast_period: 12
+    slow_period: 26
+    signal_period: 9
+  
+  grid:
+    grid_size: 10
+    order_amount: 10  # USD per grid level
+  
+  dca:
+    frequency: "weekly"  # daily, weekly, monthly
+    amount: 10  # USD per DCA order

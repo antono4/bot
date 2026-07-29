@@ -1,0 +1,16 @@
+# Social Media Bot Dependencies
+
+# Twitter
+tweepy>=4.14.0
+
+# Telegram
+python-telegram-bot>=20.0
+
+# Discord
+discord.py>=2.3.0
+
+# Common
+python-dotenv>=1.0.0
+requests>=2.31.0
+Pillow>=10.0.0  # Image processing
+schedule>=1.2.0

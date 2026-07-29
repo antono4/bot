@@ -1,0 +1,11 @@
+scraping:
+  delay: 2
+  timeout: 30
+  max_retries: 3
+
+targets:
+  - url: "https://example.com"
+    selectors:
+      - ".price"
+      - ".title"
+    schedule: "daily"
