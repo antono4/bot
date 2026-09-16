@@ -14,7 +14,7 @@
 
 ## 📖 Tentang
 
-Repository **`bot`** adalah situs statis yang dibangun dengan HTML, Python.
+Repository **`bot`** adalah proyek Python yang dibangun dengan HTML, Python.
 Situs ini diterbitkan melalui **GitHub Pages** dan dapat diakses di [`https://antono4.github.io/bot/`](https://antono4.github.io/bot/).
 
 ## 🗂️ Struktur Proyek
@@ -96,11 +96,11 @@ Berdasarkan ekstensi berkas yang terdeteksi di repository:
 
 ## 🚀 Menjalankan Secara Lokal
 
-Tanpa dependency apa pun. Buka `index.html` langsung di browser, atau jalankan server statis:
+Butuh Python 3:
 
 ```bash
-python3 -m http.server 8000
-# lalu buka http://localhost:8000
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## 📬 Kontak
